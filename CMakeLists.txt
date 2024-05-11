@@ -10,7 +10,7 @@ file(GLOB_RECURSE SOURCES
     "src/core/*.c" "src/core/*.cpp" "src/core/*.h" "src/core/*.hpp"
     "src/c_api/*.c" "src/c_api/*.cpp" "src/c_api/*.h" "src/c_api/*.hpp"
     # "src/tools/*.c" "src/tools/*.cpp" "src/tools/*.h" "src/tools/*.hpp"
-    "src/backend/miniaudio/*.c" "src/backend/miniaudio/*.cpp" "src/backend/miniaudio/*.h" "src/backend/miniaudio/*.hpp"
+    "src/backend/miniaudio/*.c" "src/backend/miniaudio/*.cpp" "src/backend/miniaudio/*.hpp"
 )
 
 # Add the SoLoud include directory
@@ -20,6 +20,8 @@ include_directories("include")
 add_library(SoLoud ${SOURCES})
 
 add_compile_definitions(WITH_MINIAUDIO)
+include_directories("src/backend/miniaudio/*.h")
+
 
 # Add the SoLoud library to the include directories
 target_include_directories(SoLoud PUBLIC "include")
