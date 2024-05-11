@@ -4,6 +4,10 @@
 #include "darray.h"
 #include "resonator.h"
 
+/// AR_MODIFIED
+#include <utility> 
+
+
 #ifndef PI
 #define PI 3.1415926535897932384626433832795f
 #endif
@@ -97,11 +101,12 @@ enum ELEMENTS
 
 #define PHONEME_COUNT 53
 #define AMP_ADJ 14
-//#define StressDur(e,s) (s,((e->mDU + e->mUD)/2))
 
+/// AR_MODIFIED
+//#define StressDur(e,s) (s,((e->mDU + e->mUD)/2))
 int StressDur(Element* e, int s)
 {
-	return (s, ((e->mDU + e->mUD) / 2));
+	return ((e->mDU + e->mUD) / 2);
 }
 
 class PhonemeToElements
