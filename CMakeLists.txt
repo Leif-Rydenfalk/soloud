@@ -23,7 +23,7 @@ add_compile_definitions(WITH_MINIAUDIO)
 
 # Add the SoLoud library to the include directories
 target_include_directories(SoLoud PUBLIC "include")
-target_include_directories(SoLoud PUBLIC "src/backend/miniaudio")
+target_include_directories(SoLoud PUBLIC "vendor/miniaudio")
 
 # Add the SoLoud library to the link directories
 target_link_directories(SoLoud PUBLIC "lib")
