@@ -38,10 +38,22 @@ set(SOURCES
 
     src/c_api/soloud_c.cpp
 
-    # src/audiosource/ay/chipplayer.cpp
-    # src/audiosource/ay/chipplayer.h 
+    src/audiosource/ay/chipplayer.cpp
+    src/audiosource/ay/chipplayer.h 
+    src/audiosource/ay/sndbuffer.cpp
+    src/audiosource/ay/sndbuffer.h
+    src/audiosource/ay/sndchip.cpp
+    src/audiosource/ay/sndchip.h
+    src/audiosource/ay/sndrender.cpp
+    src/audiosource/ay/sndrender.h
+    src/audiosource/ay/soloud_ay.cpp
 
     src/audiosource/monotone/soloud_monotone.cpp
+
+    src/audiosource/noise/soloud_noise.cpp
+
+    src/audiosource/openmpt/soloud_openmpt_dll.c
+    src/audiosource/openmpt/soloud_openmpt.cpp
 
     src/audiosource/sfxr/soloud_sfxr.cpp
 
@@ -54,6 +66,25 @@ set(SOURCES
     src/audiosource/speech/soloud_speech.cpp   
     src/audiosource/speech/tts.cpp 
     src/audiosource/speech/tts.h  
+
+    src/audiosource/tedsid/sid.cpp
+    src/audiosource/tedsid/sid.h
+    src/audiosource/tedsid/soloud_tedsid.cpp
+    src/audiosource/tedsid/ted.cpp
+    src/audiosource/tedsid/ted.h
+
+    src/audiosource/vic/soloud_vic.cpp
+
+    src/audiosource/vizsn/soloud_vizsn.cpp
+
+    src/audiosource/wav/dr_flac.h
+    src/audiosource/wav/dr_impl.cpp
+    src/audiosource/wav/dr_mp3.h
+    src/audiosource/wav/dr_wav.h
+    src/audiosource/wav/soloud_wav.cpp
+    src/audiosource/wav/soloud_wavstream.cpp
+    src/audiosource/wav/stb_vorbis.c
+    src/audiosource/wav/stb_vorbis.h
 
 )
 
