@@ -47,10 +47,10 @@ freely, subject to the following restrictions:
 #endif
 #endif
 
-#ifdef WITH_MINIAUDIO
-#define MINIAUDIO_IMPLEMENTATION
-#include "miniaudio.h"
-#endif
+// #ifdef WITH_MINIAUDIO
+// #define MINIAUDIO_IMPLEMENTATION
+// #include "miniaudio.h"
+// #endif
 
 #ifdef WITH_SDL
 #undef WITH_SDL2

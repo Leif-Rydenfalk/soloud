@@ -31,7 +31,7 @@ freely, subject to the following restrictions:
 
 namespace SoLoud
 {
-	result portaudio_init(SoLoud::Soloud *aSoloud, unsigned int aFlags, unsigned int aSamplerate, unsigned int aBuffer)
+	result portaudio_init(SoLoud::Soloud* aSoloud, unsigned int aFlags, unsigned int aSamplerate, unsigned int aBuffer)
 	{
 		return NOT_IMPLEMENTED;
 	}
@@ -40,63 +40,62 @@ namespace SoLoud
 
 #include "portaudio.h"
 
-
 extern "C"
 {
 	int dll_Pa_found();
-	PaError dll_Pa_Initialize( void );
-	PaError dll_Pa_Terminate( void );
-	PaError dll_Pa_CloseStream( PaStream *stream );
-	PaError dll_Pa_StartStream( PaStream *stream );
-	PaError dll_Pa_OpenDefaultStream( PaStream** stream,
-                              int numInputChannels,
-                              int numOutputChannels,
-                              PaSampleFormat sampleFormat,
-                              double sampleRate,
-                              unsigned long framesPerBuffer,
-                              PaStreamCallback *streamCallback,
-                              void *userData );
+	PaError dll_Pa_Initialize(void);
+	PaError dll_Pa_Terminate(void);
+	PaError dll_Pa_CloseStream(PaStream* stream);
+	PaError dll_Pa_StartStream(PaStream* stream);
+	PaError dll_Pa_OpenDefaultStream(PaStream** stream,
+							  int numInputChannels,
+							  int numOutputChannels,
+							  PaSampleFormat sampleFormat,
+							  double sampleRate,
+							  unsigned long framesPerBuffer,
+							  PaStreamCallback* streamCallback,
+							  void* userData);
 };
 
 
 
 namespace SoLoud
 {
-	static PaStream *gStream;
+	static PaStream* gStream;
 
-	static int portaudio_callback( 
-				const void * /*input*/,
-				void *output,
+	static int portaudio_callback(
+				const void* /*input*/,
+				void* output,
 				unsigned long frameCount,
 				const PaStreamCallbackTimeInfo* /*timeInfo*/,
 				PaStreamCallbackFlags /*statusFlags*/,
-				void *userData ) 
+				void* userData)
 	{
-		SoLoud::Soloud *soloud = (SoLoud::Soloud *)userData;
+		SoLoud::Soloud* soloud = (SoLoud::Soloud*)userData;
 		//float *mixdata = (float*)(soloud->mBackendData);
 		soloud->mix((float*)output, frameCount);
 
 		return 0;
 	}
 #if 0
-	static void portaudio_mutex_lock(void * mutex)
+	static void portaudio_mutex_lock(void* mutex)
 	{
 		Thread::lockMutex(mutex);
 	}
 
-	static void portaudio_mutex_unlock(void * mutex)
+	static void portaudio_mutex_unlock(void* mutex)
 	{
 		Thread::unlockMutex(mutex);
 	}
 #endif
 
-	void soloud_portaudio_deinit(SoLoud::Soloud * /*aSoloud*/)
+	void soloud_portaudio_deinit(SoLoud::Soloud* /*aSoloud*/)
 	{
 		dll_Pa_CloseStream(gStream);
 		dll_Pa_Terminate();
-	}
+}
 
-	result portaudio_init(SoLoud::Soloud *aSoloud, unsigned int aFlags, unsigned int aSamplerate, unsigned int aBuffer, unsigned int aChannels)
+	result portaudio_init(SoLoud::Soloud* aSoloud, unsigned int aFlags, unsigned int aSamplerate, unsigned int aBuffer, unsigned int aChannels)
 	{
 		if (!dll_Pa_found())
 			return DLL_NOT_FOUND;
@@ -119,6 +118,6 @@ namespace SoLoud
 
 		return 0;
 	}
-	
-};
+
+	};
 #endif

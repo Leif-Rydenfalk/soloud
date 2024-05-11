@@ -37,8 +37,6 @@ freely, subject to the following restrictions:
 #endif
 #endif
 
-#define WITH_MINIAUDIO
-
 #if !defined(WITH_SDL2) && !defined(WITH_SDL1) && !defined(WITH_PORTAUDIO) && \
    !defined(WITH_OPENAL) && !defined(WITH_XAUDIO2) && !defined(WITH_WINMM) && \
    !defined(WITH_WASAPI) && !defined(WITH_OSS) && !defined(WITH_SDL1_STATIC) && \
@@ -1025,8 +1023,8 @@ namespace SoLoud
 				s1 = aSrc[p - 1];
 			}
 			aDst[i] = s1 + (s2 - s1) * f * (1 / (float)FIXPOINT_FRAC_MUL);
+			}
 		}
-	}
 
 	static void resample_point(float* aSrc,
 		float* aSrc1,
@@ -1594,7 +1592,7 @@ namespace SoLoud
 
 		for (k = 0; k < aChannels; k++)
 			aVoice->mCurrentChannelVolume[k] = pand[k];
-	}
+		}
 
 	void Soloud::mixBus_internal(float* aBuffer, unsigned int aSamplesToRead, unsigned int aBufferSize, float* aScratch, unsigned int aBus, float aSamplerate, unsigned int aChannels, unsigned int aResampler)
 	{
@@ -2232,7 +2230,7 @@ namespace SoLoud
 				}
 			}
 		}
-	}
+		}
 
 	void Soloud::mix(float* aBuffer, unsigned int aSamples)
 	{
@@ -2300,4 +2298,4 @@ namespace SoLoud
 		}
 	}
 
-};
+	};
