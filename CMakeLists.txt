@@ -19,10 +19,8 @@ include_directories("include")
 # Create the SoLoud library
 add_library(SoLoud ${SOURCES})
 
-if (USE_MINIAUDIO)
-    add_compile_definitions(WITH_MINIAUDIO)
-    include_directories(src/backend/miniaudio)
-endif()
+add_compile_definitions(WITH_MINIAUDIO)
+include_directories(src/backend/miniaudio)
 
 # Add the SoLoud library to the include directories
 target_include_directories(SoLoud PUBLIC "include")
