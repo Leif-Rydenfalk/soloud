@@ -24,6 +24,7 @@
 #include "soloud_sfxr.h"
 #include "soloud_monotone.h"
 #include "soloud_tedsid.h"
+#include "soloud_noise.h"
 #endif
 
 #if defined(ARE_SOLOUD_INCLUDE_EFFECTS) || defined(ARE_SOLOUD_INCLUDE_ALL)
