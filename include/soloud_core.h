@@ -14,10 +14,10 @@
 #include "soloud_file_hack_off.h"
 #include "soloud_file_hack_on.h"
 
-// For testing
-#define ARE_SOLOUD_INCLUDE_ALL
+// // For testing
+// #define AR_SOLOUD_INCLUDE_ALL
 
-#if defined(ARE_SOLOUD_INCLUDE_AUDIOSOURCES) || defined(ARE_SOLOUD_INCLUDE_ALL)
+#if defined(AR_SOLOUD_INCLUDE_AUDIOSOURCES) || defined(AR_SOLOUD_INCLUDE_ALL)
 #include "soloud_wav.h"
 #include "soloud_wavstream.h"
 #include "soloud_speech.h"
@@ -27,7 +27,7 @@
 #include "soloud_noise.h"
 #endif
 
-#if defined(ARE_SOLOUD_INCLUDE_EFFECTS) || defined(ARE_SOLOUD_INCLUDE_ALL)
+#if defined(AR_SOLOUD_INCLUDE_EFFECTS) || defined(AR_SOLOUD_INCLUDE_ALL)
 #include "soloud_echofilter.h"
 #include "soloud_biquadresonantfilter.h"
 #include "soloud_lofifilter.h"
